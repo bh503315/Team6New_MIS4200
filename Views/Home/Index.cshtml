@@ -1,31 +1,55 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Centric Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="view overlay rounded-top">
+        <img src="https://centricconsulting.com/wp-content/uploads/2020/01/SummerMeeting_2019_AllCentric_Team_Group_Photo_1-1680x750.jpg" class="img-responsive" alt="Responsive image">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body text-center mb-3">
+
+        <!-- Title -->
+        <h3 class="card-title h3 my-4"><strong>Core Value Nomination Survey</strong></h3>
+        <!-- Text -->
+        <p class="card-text py-2">Give recognition to your coworkers for displaying excellence in one or more of our Core Values.</p>
+        <!-- Button -->
+        <a class="btn btn-default" style="font-size : larger; color : white; background-color : #4e3c69" @Html.ActionLink("Nominate", "Create", "Recognitions")</a>
+
+    </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="well" style="background-image : linear-gradient(#ffbd28, white)">
+            <h2>Core Values</h2>
+            <p>
+                Our core values provide a reliable foundation to help us create innovative solutions for our clients – even when faced with a tough problem. Click here for a brief overview of our core values and what they mean to us.
+            </p>
+            <p><a class="btn btn-default" @Html.ActionLink("CoreValues", "CoreValues") &raquo;</a></p>
+        </div>
     </div>
+
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <div class="well" style="background-image : linear-gradient(#ffbd28,white)">
+            <h2>Search for Coworkers</h2>
+            <p>"Enjoy the people you work with, have fun, and do great work." - Centric Consulting </p>
+            <p><a class="btn btn-default" @Html.ActionLink("Employees", "Index", "Employees") &raquo;</a></p>
+        </div>
     </div>
+
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="well" style="background-image : linear-gradient(#ffbd28,white)">
+            <h2>Follow Us On Social Media!</h2>
+            <p><a class="btn btn-default" href="https://www.facebook.com/CentricConsultingNational">Facebook</a></p>
+            <p><a class="btn btn-default" href="https://twitter.com/centric">Twitter</a></p>
+            <p><a class="btn btn-default" href="https://www.linkedin.com/company/centric-consulting/">LinkedIn</a></p>
+            <p><a class="btn btn-default" href="https://www.instagram.com/centricconsulting/">Instagram</a></p>
+            <p><a class="btn btn-default" href="https://www.youtube.com/channel/UCFmtoIKH1ijwpGpiJBxl4dw">Youtube</a></p>
+
+        </div>
     </div>
-</div>
