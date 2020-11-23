@@ -40,7 +40,7 @@ namespace Team6New_MIS4200.Models
             Balanced = 7
         }
 
-        [ForeignKey("recognizor")]
+        [ForeignKey("Recognizor")]
 
         public virtual Employees Nominator {​​ get; set; }​​
 
