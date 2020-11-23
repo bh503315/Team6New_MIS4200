@@ -12,7 +12,7 @@ namespace Team6New_MIS4200.DAL
     {
         public MIS4200Context() : base("name=DefaultConnection")
         {
-
+            
         }
         public DbSet<Employees> Employees { get; set; }
 
