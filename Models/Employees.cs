@@ -59,7 +59,7 @@ namespace Team6New_MIS4200.Models
         [ForeignKey("Nominee")]
         public ICollection<Recognition> recognition { get; set; }
 
-        [ForeignKey("Recognizor")]
+        [ForeignKey("recognizor")]
         public ICollection<Recognition> nominations { get; set; }
     }
 }
