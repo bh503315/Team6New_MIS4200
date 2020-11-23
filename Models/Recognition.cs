@@ -40,5 +40,14 @@ namespace Team6New_MIS4200.Models
             Balanced = 7
         }
 
+        [ForeignKey("recognizor")]
+
+        public virtual Employees Nominator {​​ get; set; }​​
+
+
+        [ForeignKey("Nominee")]
+
+        public virtual Employees recognized {​​ get; set; }​​]
+
     }
 }
