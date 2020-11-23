@@ -38,6 +38,7 @@ namespace Team6New_MIS4200.Controllers
         }
 
         // GET: Recognitions/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.recognizor = new SelectList(db.Employees, "ID", "Email");
