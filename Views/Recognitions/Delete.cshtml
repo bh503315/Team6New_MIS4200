@@ -1,0 +1,56 @@
+﻿@model Team6New_MIS4200.Models.Recognition
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recognition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nominations.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nominations.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recognition.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recognition.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.award)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.award)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recognizationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recognizationDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
