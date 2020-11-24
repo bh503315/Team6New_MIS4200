@@ -9,6 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@{
+    var total = ViewBag.total;
+    <h2>Total Recognitions = @total  </h2>
+
+}
 <table class="table">
     <tr>
         <th>
@@ -26,26 +31,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nominations.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognition.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.award)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognizationDate)
-        </td>
-        <td>
-         
-            @Html.ActionLink("Details", "Details", new { id=item.surveyID }) 
-          
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nominations.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recognition.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.award)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recognizationDate)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.surveyID })
+
+            </td>
+        </tr>
+
+    }
 
 </table>

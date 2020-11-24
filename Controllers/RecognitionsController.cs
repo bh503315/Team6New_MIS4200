@@ -15,9 +15,19 @@ namespace Team6New_MIS4200.Controllers
     {
         private MIS4200Context db = new MIS4200Context();
 
+        public Guid Nominee { get; private set; }
+
         // GET: Recognitions
+
         public ActionResult Index()
         {
+            var rec = db.Recognition;
+            var recList = rec.ToList();
+            ViewBag.rec = recList;
+            var totalCnt = recList.Count();
+            ViewBag.total = totalCnt;
+           
+
             var recognition = db.Recognition.Include(r => r.Nominations).Include(r => r.recognition);
             return View(recognition.ToList());
         }
