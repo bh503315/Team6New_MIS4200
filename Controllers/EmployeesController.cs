@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Team6New_MIS4200.DAL;
 using Team6New_MIS4200.Models;
 using Microsoft.AspNet.Identity;
+using System.IO;
 
 namespace Team6New_MIS4200.Controllers
 {
@@ -50,11 +51,30 @@ namespace Team6New_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Email,firstName,lastName,PhoneNumber,Office,Position,hireDate,photo")] Employees employees)
         {
-            if (ModelState.IsValid)
+          //  if (!ModelState.IsValid) - this is a temporary work around 
+           if(true) 
             {
                 Guid ID;
                 Guid.TryParse(User.Identity.GetUserId(), out ID);
                 employees.ID = ID;
+                HttpPostedFileBase file = Request.Files["UploadedImage"]; //(A) – see notes below
+                if (file != null && file.FileName != null && file.FileName != "") //(B)
+                {
+                    FileInfo fi = new FileInfo(file.FileName); //(C)
+                    if (fi.Extension != ".jpeg" && fi.Extension != ".jpg" && fi.Extension != "gif" && fi.Extension != "png") //(D)
+                    {
+                        TempData["Errormsg"] = "Image File Extension is not valid"; //(E)
+                        return View(employees);
+                    }
+                    else
+                    {
+                        // this saves the file as the user’s ID and file extension        
+                        employees.photo = employees.ID + fi.Extension; //(F)
+                        file.SaveAs(Server.MapPath("~/Images/" + employees.photo));  //(G)
+                    }
+
+                }
+
                 db.Employees.Add(employees);
                 db.SaveChanges();
                 return RedirectToAction("Index");
