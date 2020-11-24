@@ -41,8 +41,8 @@ namespace Team6New_MIS4200.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.recognizor = new SelectList(db.Employees, "ID", "Email");
-            ViewBag.Nominee = new SelectList(db.Employees, "ID", "Email");
+            ViewBag.recognizor = new SelectList(db.Employees, "ID", "fullName");
+            ViewBag.Nominee = new SelectList(db.Employees, "ID", "fullName");
             return View();
         }
 
