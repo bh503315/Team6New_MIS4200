@@ -13,7 +13,7 @@ namespace Team6New_MIS4200.Models
         [Required]
         public Guid ID { get; set; }
 
-        [Display(Name = "Email Address Required")]
+        [Display(Name = "Email Address")]
         [Required]
         [EmailAddress(ErrorMessage = "Enter your most frequently used email address")]
         public string Email { get; set; }
