@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Employee Details</h2>
 
 <div>
-    <h4>Employees</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -75,28 +75,30 @@
         </dd>
 
     </dl>
+    <div class="well" style="background-image : linear-gradient(#ffbd28, white)">
+        
+        @{
 
-    @{
-        var total = ViewBag.total;
-        var excellence = ViewBag.Excellence;
-        var integrity = ViewBag.Integrity;
-        var balanced = ViewBag.Balanced;
-        var culture = ViewBag.Culture;
-        var innovate = ViewBag.Innovate;
-        var passion = ViewBag.Passion;
-        var stewardship = ViewBag.Stewardship;
+            var total = ViewBag.total;
+            var excellence = ViewBag.Excellence;
+            var integrity = ViewBag.Integrity;
+            var balanced = ViewBag.Balanced;
+            var culture = ViewBag.Culture;
+            var innovate = ViewBag.Innovate;
+            var passion = ViewBag.Passion;
+            var stewardship = ViewBag.Stewardship;
 
-        <h2>Total recognitions recieved = @total</h2>
-        <h3>Excellence awards = @excellence</h3>
-        <h3>Integrity Awards = @integrity</h3>
-        <h3>Balanced Awards = @balanced</h3>
-        <h3>Culture Awards = @culture</h3>
-        <h3>Innovate Awards = @innovate</h3>
-        <h3>Passion Awards = @passion</h3>
-        <h3>Stewardship Awards = @stewardship</h3>
+            <h3>Total recognitions recieved = @total</h3>
+            <h4>Excellence awards = @excellence</h4>
+            <h4>Integrity Awards = @integrity</h4>
+            <h4>Balanced Awards = @balanced</h4>
+            <h4>Culture Awards = @culture</h4>
+            <h4>Innovate Awards = @innovate</h4>
+            <h4>Passion Awards = @passion</h4>
+            <h4>Stewardship Awards = @stewardship</h4>
 
-    }
-
+        }
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
