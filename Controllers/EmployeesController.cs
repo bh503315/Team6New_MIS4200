@@ -36,6 +36,33 @@ namespace Team6New_MIS4200.Controllers
             {
                 return HttpNotFound();
             }
+
+            var rec = db.Recognition.Where(r => r.Nominee == id).OrderBy(a => a.recognizationDate);
+
+            var recList = rec.ToList();
+            ViewBag.rec = recList;
+
+            var totalCnt = recList.Count();
+            var rec1Cnt = recList.Where(r => r.award == Recognition.CoreValue.Excellence).Count();
+            var rec2Cnt = recList.Where(r => r.award == Recognition.CoreValue.Integrity).Count();
+            var rec3Cnt = recList.Where(r => r.award == Recognition.CoreValue.Balanced).Count();
+            var rec4Cnt = recList.Where(r => r.award == Recognition.CoreValue.Culture).Count();
+            var rec5Cnt = recList.Where(r => r.award == Recognition.CoreValue.Innovate).Count();
+            var rec6Cnt = recList.Where(r => r.award == Recognition.CoreValue.Passion).Count();
+            var rec7Cnt = recList.Where(r => r.award == Recognition.CoreValue.Stewardship).Count();
+
+            //copy values into viewbag
+            ViewBag.total = totalCnt;
+            ViewBag.Excellence = rec1Cnt;
+            ViewBag.Integrity = rec2Cnt;
+            ViewBag.Balanced = rec3Cnt;
+            ViewBag.Culture = rec4Cnt;
+            ViewBag.Innovate = rec5Cnt;
+            ViewBag.Passion = rec6Cnt;
+            ViewBag.Stewardship = rec7Cnt;
+
+
+
             return View(employees);
         }
 
@@ -52,8 +79,8 @@ namespace Team6New_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Email,firstName,lastName,PhoneNumber,Office,Position,hireDate,photo")] Employees employees)
         {
-          //  if (!ModelState.IsValid) - this is a temporary work around 
-           if(true) 
+            //  if (!ModelState.IsValid) - this is a temporary work around 
+            if (true)
             {
                 Guid ID;
                 Guid.TryParse(User.Identity.GetUserId(), out ID);
@@ -83,6 +110,7 @@ namespace Team6New_MIS4200.Controllers
 
             return View(employees);
         }
+    
 
         // GET: Employees/Edit/5
         public ActionResult Edit(Guid? id)
