@@ -18,6 +18,7 @@ namespace Team6New_MIS4200.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: Employees
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Employees.ToList());
