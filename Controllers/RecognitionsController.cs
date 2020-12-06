@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Team6New_MIS4200.DAL;
@@ -72,6 +73,29 @@ namespace Team6New_MIS4200.Controllers
 
             ViewBag.recognizor = new SelectList(db.Employees, "ID", "Email", recognition.recognizor);
             ViewBag.Nominee = new SelectList(db.Employees, "ID", "Email", recognition.Nominee);
+
+            SmtpClient myClient = new SmtpClient();
+            myClient.Credentials = new NetworkCredential("AuthorizedUser", "UserPassword");
+            MailMessage myMessage = new MailMessage();
+
+            MailAddress from = new MailAddress("bh503315@ohio.edu", "SysAdmin");
+            myMessage.From = from;
+            myMessage.To.Add("bh503315@ohio.edu");
+            myMessage.Subject = "Recognition Received";
+            myMessage.Body = "You have received recognition from someone! Log in to check it out.";
+
+            try {
+            myClient.Send(myMessage);
+                TempData["mailError"] = "";
+
+            }
+            catch (Exception ex)
+            {
+            TempData["mailError"] = ex.Message;
+            }
+
+
+
             return View(recognition);
         }
 
